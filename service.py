@@ -26,16 +26,19 @@ def convert(img_path,name):
 
     png = Image.open(img_path).convert('RGBA')
 
-    print 'creating images'
+    print 'creating images (%s)' % name
     for x in range(0,len(sizes)):
         resized = png.resize((sizes[x],sizes[x]))
+        resized.save('/tmp/transparent.png')
+        upload_path = '%s/%s' % (name,sizes[x])
+        s3_client.put_object(Key='%s/transparent.png' % (upload_path), Bucket=output_bucket, Body=open('/tmp/transparent.png','rb'), ContentType='image/png')
         for color in colors:
-            upload_path = '%s/%s' % (name,sizes[x])
             background = Image.new("RGBA",(sizes[x],sizes[x]),ImageColor.getrgb(colors[color]))
             background.paste(resized ,(0,0), resized)
             filename = '/tmp/%s%s.jpg' % (sizes[x],color)
             background.save(filename)
             s3_client.put_object(Key='%s/%s.jpg' % (upload_path,color), Bucket=output_bucket, Body=open(filename,'rb'), ContentType='image/jpeg')
+
 
 def handler(event, context):
     for record in event['Records']:
