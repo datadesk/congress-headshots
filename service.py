@@ -43,4 +43,3 @@ def handler(event, context):
         download_path = '/tmp/{}{}'.format(uuid.uuid4(), key)
         s3_client.download_file(bucket, key, download_path)
         convert(download_path,key)
-
