@@ -16,7 +16,8 @@ sizes = [
 colors = {
     'rep':'#f0b4b8',
     'dem':'#97c7e5',
-    'ind':'#d7a369'
+    'ind':'#d7a369',
+    'teal':'#3f97a5'
 }
 
 def convert(img_path,name):
