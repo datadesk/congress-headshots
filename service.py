@@ -23,7 +23,7 @@ def convert(img_path,name):
     print img_path,name
     name = name.split('.')[0]
 
-    png = Image.open(img_path)
+    png = Image.open(img_path).convert('RGBA')
 
     print 'creating images'
     for x in range(0,len(sizes)):
