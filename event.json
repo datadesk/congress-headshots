@@ -27,7 +27,7 @@
                "arn":"arn:aws:s3:::congress-headshots-in"
             },
             "object":{  
-               "key":"debbie_wasserman_schultz.png",
+               "key":"H001075.png",
                "size":1024,
                "eTag":"d41d8cd98f00b204e9800998ecf8427e",
                "versionId":"096fKKXTRTtl3on89fVO.nfljtsv6qko"
