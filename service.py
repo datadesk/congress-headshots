@@ -4,7 +4,6 @@ import sys
 sys.path.append('./')
 import uuid
 from PIL import Image, ImageColor
-import env
 from fetch_metadata import Command
 
 s3_client = boto3.client('s3')
