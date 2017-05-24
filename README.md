@@ -1,3 +1,9 @@
+setup:
+```
+pip install -r requirements.txt
+create an environment variable 'PP_API_KEY' with your ProPublica API key
+```
+
 how 2 deploy:
 ```
 $zip deploy.zip service.py
