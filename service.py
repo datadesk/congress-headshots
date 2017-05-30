@@ -10,15 +10,24 @@ s3_client = boto3.client('s3')
 output_bucket = 'congress-headshots'
 
 sizes = [
-    150,
-    250,
-    350
+    50,
+    100,
+    200,
+    300
 ]
 colors = {
-    'rep':'#f0b4b8',
-    'dem':'#97c7e5',
-    'ind':'#d7a369',
-    'teal':'#3f97a5'
+    'rep':'#D74E54',
+    'dem':'#4875AB',
+    'ind':'#D3CBA8',
+    'tie':'#ECCA62',
+    'nodata':'#E7EBE9',
+    'teal':'#A3DBD0',
+    'lightblue':'#A5D0E0',
+    'gray':'#8FA0AA',
+    'lavender':'#B9B1CC',
+    'yellow':'#EDDC81',
+    'tan':'#C4C0A9',
+    'orange':'#EBB15A'
 }
 
 def convert(img_path,name):
