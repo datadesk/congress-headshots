@@ -38,15 +38,15 @@ def convert(img_path,name):
 
     print 'creating images (%s)' % name
     for x in range(0,len(sizes)):
-        resized = png.resize((sizes[x],sizes[x]))
-        resized.save('/tmp/transparent.png')
+        resized = png.resize((sizes[x],sizes[x]), Image.ANTIALIAS)
+        resized.save('/tmp/transparent.png', quality=100)
         upload_path = '%s/%s' % (name,sizes[x])
         s3_client.put_object(Key='%s/transparent.png' % (upload_path), Bucket=output_bucket, Body=open('/tmp/transparent.png','rb'), ContentType='image/png')
         for color in colors:
             background = Image.new("RGBA",(sizes[x],sizes[x]),ImageColor.getrgb(colors[color]))
             background.paste(resized ,(0,0), resized)
             filename = '/tmp/%s%s.jpg' % (sizes[x],color)
-            background.save(filename)
+            background.save(filename, quality=95)
             s3_client.put_object(Key='%s/%s.jpg' % (upload_path,color), Bucket=output_bucket, Body=open(filename,'rb'), ContentType='image/jpeg')
 
 
