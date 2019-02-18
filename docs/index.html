@@ -4,7 +4,16 @@
     <link rel="stylesheet" type="text/css" href="//cookbook.latimes.com/bootstrap/2.3.2/css/bootstrap-responsive.min.css" />
     <link rel="stylesheet" type="text/css" href="//d1qqc1e9kvmdh8.cloudfront.net/css/ngux-tophat-1.3.5.min.css">
     <link rel="stylesheet" type="text/css" href="//d1qqc1e9kvmdh8.cloudfront.net/css/ngux-tophat-responsive-1.3.5.min.css">
+    <script type="text/javascript" src="//cookbook.latimes.com/js/jquery-1.12.4/jquery.min.js">
+   </script>
 <style>
+#headshot-color-table {
+    display: block;
+    clear: both;
+}
+#headshot-color-table th {
+    text-align: left;
+}
 #headshot-color-table td{
     border: 0.5px solid #aaa;
     padding: 4px;
@@ -34,6 +43,18 @@ select#headshot-color-select {
 #random-headshot-button{
     display: block;
 }
+article.big-build .container h1,
+article.big-build .container p,
+article.big-build .container div,
+article.big-build .container ul,
+article.big-build .container table {
+    max-width: 840px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.container ul li {
+    margin-left: 30px;
+}
 </style>
 </head>
 <body>
@@ -41,7 +62,7 @@ select#headshot-color-select {
         <div class="container">
     <h1>Congressional headshots</h1>
     <p>
-        We like to see faces. You can get almost all active congress members' photos in our congress-headshots S3 bucket: https://s3-us-west-2.amazonaws.com/congress-headshots/
+        We like to see faces. You can get almost all active congress members' photos in our <a href="https://www.github.com/datadesk/congress-headshots/">congress-headshots</a> repository.
     </p>
     <p>
         Try it out:
@@ -99,6 +120,7 @@ select#headshot-color-select {
         </p>
         <p>
         You also have 13 options for background colors:
+        </p>
         <table id="headshot-color-table">
         <thead>
             <tr>
@@ -161,7 +183,7 @@ select#headshot-color-select {
             </tr>
         </tbody>
         </table>
-    </p>
+    <div style="clear: both; display: block;"></div>
     <p>
         To request an image, you'll need the Congressmember's member ID. You can find those <a href="https://www.congress.gov/help/field-values/member-bioguide-ids">here.</a>
     </p>
@@ -169,18 +191,8 @@ select#headshot-color-select {
         Here's the URL format:
     </p>
     <div class="bs-docs-example">
-    {% pygment %}
     <pre lang="html">https://s3-us-west-2.amazonaws.com/congress-headshots/MEMBER_ID/SIZE/COLOR.jpg</pre>
-    {% endpygment %}
     </div>
-
-
-    <p>
-        Remember: If you request an image with a transparent background, it's a PNG (the file size will also be higher). Otherwise, it's a JPG. Also note that the image size should not include "px".
-    </p>
-    <p>
-        If we don't have an image for a member of Congress, substitute "image_unavailable" for the member ID. If you have a photo but it's not in the bucket, it's easy to get it added — you just have to upload it to our "congress-headshots-in" bucket and AWS will convert it to the necessary formats automatically.
-    </p>
 </div>
 </article>
 </body>
