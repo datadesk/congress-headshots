@@ -14,7 +14,7 @@ kappa==0.6.0
 lambda==0.0.1
 olefile==0.44
 packaging==16.8
-Pillow==4.1.1
+Pillow==7.1.0
 placebo==0.8.1
 pyaml==15.8.2
 pyparsing==2.2.0
